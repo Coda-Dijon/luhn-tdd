@@ -15,7 +15,8 @@ class LuhnTest {
     public static Stream<Arguments> invalidTestCases() {
         return Stream.of(
                 Arguments.of((Object) null),
-                Arguments.of("")
+                Arguments.of(""),
+                Arguments.of("9")
         );
     }
 
