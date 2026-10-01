@@ -18,4 +18,10 @@ class LuhnTest {
         assertThat(Luhn.isValid(""))
                 .isFalse();
     }
+
+    @Test
+    void succeed_for() {
+        assertThat(Luhn.isValid("00"))
+                .isTrue();
+    }
 }
