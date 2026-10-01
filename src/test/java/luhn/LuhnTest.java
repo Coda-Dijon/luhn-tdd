@@ -16,7 +16,8 @@ class LuhnTest {
         return Stream.of(
                 Arguments.of((Object) null),
                 Arguments.of(""),
-                Arguments.of("9")
+                Arguments.of("9"),
+                Arguments.of("10")
         );
     }
 
