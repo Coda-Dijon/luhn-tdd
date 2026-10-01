@@ -23,7 +23,10 @@ class LuhnTest {
     public static Stream<Arguments> validTestCases() {
         return Stream.of(
                 Arguments.of("00"),
-                Arguments.of("18")
+                Arguments.of("18"),
+                Arguments.of("5555 5555 5555 4444"),
+                Arguments.of("79927398713"),
+                Arguments.of("6011 1111 1111 1117")
         );
     }
 
