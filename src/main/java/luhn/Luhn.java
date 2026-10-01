@@ -1,8 +1,11 @@
 package luhn;
 
+import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
 public class Luhn {
+    private static final Pattern regexp = Pattern.compile("^[0-9]+$");
+
     public static boolean isValid(String potentialLuhnNumber) {
         return hasAValidFormat(potentialLuhnNumber)
                 && checkNumber(sanitize(potentialLuhnNumber));
@@ -10,8 +13,7 @@ public class Luhn {
 
     private static boolean hasAValidFormat(String potentialLuhnNumber) {
         return potentialLuhnNumber != null
-                && !potentialLuhnNumber.isBlank()
-                && potentialLuhnNumber.length() > 1;
+                && regexp.matcher(sanitize(potentialLuhnNumber)).find();
     }
 
     private static boolean checkNumber(String potentialLuhnNumber) {
