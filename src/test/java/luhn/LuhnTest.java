@@ -1,7 +1,6 @@
 package luhn;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -21,16 +20,24 @@ class LuhnTest {
         );
     }
 
+    public static Stream<Arguments> validTestCases() {
+        return Stream.of(
+                Arguments.of("00"),
+                Arguments.of("18")
+        );
+    }
+
     @ParameterizedTest
     @MethodSource("invalidTestCases")
-    void fail_for_null(String invalidLuhnNumber) {
+    void fail_for(String invalidLuhnNumber) {
         assertThat(Luhn.isValid(invalidLuhnNumber))
                 .isFalse();
     }
 
-    @Test
-    void succeed_for() {
-        assertThat(Luhn.isValid("00"))
+    @ParameterizedTest
+    @MethodSource("validTestCases")
+    void succeed_for(String validLuhnNumber) {
+        assertThat(Luhn.isValid(validLuhnNumber))
                 .isTrue();
     }
 }
