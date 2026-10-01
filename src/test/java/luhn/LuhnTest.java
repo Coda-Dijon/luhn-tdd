@@ -12,4 +12,10 @@ class LuhnTest {
         assertThat(Luhn.isValid(null))
                 .isFalse();
     }
+
+    @Test
+    void fail_for_empty() {
+        assertThat(Luhn.isValid(""))
+                .isFalse();
+    }
 }
