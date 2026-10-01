@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class Luhn {
     public static boolean isValid(String potentialLuhnNumber) {
         return hasAValidFormat(potentialLuhnNumber)
-                && checkNumber(potentialLuhnNumber);
+                && checkNumber(sanitize(potentialLuhnNumber));
     }
 
     private static boolean hasAValidFormat(String potentialLuhnNumber) {
@@ -29,5 +29,9 @@ public class Luhn {
     private static int doubled(int digit) {
         var result = digit * 2;
         return result > 9 ? result - 9 : result;
+    }
+
+    private static String sanitize(String potentialLuhnNumber) {
+        return potentialLuhnNumber.replace(" ", "");
     }
 }
