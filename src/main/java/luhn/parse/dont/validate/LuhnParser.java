@@ -1,4 +1,4 @@
-package luhn;
+package luhn.parse.dont.validate;
 
 import io.vavr.control.Either;
 
